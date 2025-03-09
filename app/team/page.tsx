@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Team = () => {
-  return (
-    <div>Team</div>
-  )
-}
+  return <div className="h-screen w-full"></div>;
+};
 
-export default Team
+export default Team;
