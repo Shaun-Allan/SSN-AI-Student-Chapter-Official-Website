@@ -10,7 +10,7 @@ const Header = () => {
   const [textDark, setTextDark] = useState(false);
   const [showTitle, setShowTitle] = useState(false);
   const [footerVisible, setFooterVisible] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [imdobileMenuOpen, setImdobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const Header = () => {
     <div
       className={`fixed top-0 w-full flex items-center justify-between px-4 md:px-20 transition-all duration-300 z-10 ${
         pathname !== "/" || (pathname === "/" && scrolled)
-          ? "py-4 backdrop-blur-sm"
+          ? "py-4 backdrop-blur-md"
           : "py-10 bg-transparent"
       }`}
     >
@@ -59,14 +59,14 @@ const Header = () => {
         }`}
       >
         <Image
-          className="h-[32px] sm:h-[42px] w-auto"
+          className="h-[32px] md:h-[42px] w-auto"
           src="/ssn.png"
           alt="ssn-logo"
           height={200}
           width={200}
         />
         <span
-          className="text-md sm:text-2xl"
+          className="text-md md:text-2xl"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
           AI Student Chapter
@@ -75,7 +75,7 @@ const Header = () => {
 
       {/* Navigation Links */}
       <div className="hidden md:flex gap-30">
-        {["/team", "/events"].map((link, index) => (
+        {["/", "/team", "/events"].map((link, index) => (
           <Link
             key={index}
             href={link}
@@ -83,9 +83,13 @@ const Header = () => {
               pathname === "/" && !textDark ? "text-white" : "text-black"
             }`}
           >
-            {link.replace("/", "").charAt(0).toUpperCase() + link.slice(2)}
+            {link === "/"
+              ? "Home"
+              : link.replace("/", "").charAt(0).toUpperCase() + link.slice(2)}
             <span
-              className={`absolute bottom-[-4px] left-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-green-500 transition-all duration-300 group-hover:w-full`}
+              className={`absolute bottom-[-4px] left-0 w-0 h-[2px] ${
+                pathname === link ? "w-full" : "w-0"
+              } bg-gradient-to-r from-blue-500 to-green-500 transition-all duration-300 group-hover:w-full`}
             ></span>
           </Link>
         ))}
@@ -95,16 +99,16 @@ const Header = () => {
       <div className="md:hidden flex items-center z-50 relative">
         <motion.button
           className="flex flex-col justify-center items-center"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          onClick={() => setImdobileMenuOpen(!imdobileMenuOpen)}
         >
           <motion.span
             className={`block w-6 h-1 rounded mb-1 ${
-              textDark || isMobileMenuOpen || pathname !== "/"
+              textDark || imdobileMenuOpen || pathname !== "/"
                 ? "bg-black"
                 : "bg-white"
             }`}
             animate={
-              isMobileMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }
+              imdobileMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }
             }
             transition={{
               rotate: { type: "spring", stiffness: 260, damping: 20 },
@@ -114,11 +118,11 @@ const Header = () => {
           ></motion.span>
           <motion.span
             className={`block w-6 h-1 rounded mb-1 ${
-              textDark || isMobileMenuOpen || pathname !== "/"
+              textDark || imdobileMenuOpen || pathname !== "/"
                 ? "bg-black"
                 : "bg-white"
             }`}
-            animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
+            animate={imdobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
             transition={{
               opacity: { duration: 0.2 },
               backgroundColor: { duration: 1.0 },
@@ -126,12 +130,12 @@ const Header = () => {
           ></motion.span>
           <motion.span
             className={`block w-6 h-1 rounded ${
-              textDark || isMobileMenuOpen || pathname !== "/"
+              textDark || imdobileMenuOpen || pathname !== "/"
                 ? "bg-black"
                 : "bg-white"
             }`}
             animate={
-              isMobileMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }
+              imdobileMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }
             }
             transition={{
               rotate: { type: "spring", stiffness: 260, damping: 20 },
@@ -144,7 +148,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <AnimatePresence>
-        {isMobileMenuOpen && (
+        {imdobileMenuOpen && (
           <motion.div
             className="absolute top-0 left-0 w-full h-screen bg-white py-4 px-16 flex flex-col items-center md:hidden justify-center items-start font-[Inter] gap-24 font-bold bg-"
             initial={{ y: -500 }} // Start position (above the screen)
@@ -152,14 +156,22 @@ const Header = () => {
             exit={{ y: -1000 }} // Slide back up when it closes
             transition={{ type: "spring", stiffness: 420, damping: 50 }}
           >
-            {["/team", "/events"].map((link, index) => (
+            {["/", "/team", "/events"].map((link, index) => (
               <Link
                 key={index}
                 href={link}
                 className="block text-black text-4xl"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => setImdobileMenuOpen(false)}
               >
-                {link.replace("/", "").charAt(0).toUpperCase() + link.slice(2)}
+                {link === "/"
+                  ? "Home"
+                  : link.replace("/", "").charAt(0).toUpperCase() +
+                    link.slice(2)}
+                <span
+                  className={`absolute bottom-[-4px] left-0 w-0 h-[2px] ${
+                    pathname === link ? "w-full" : "w-0"
+                  } bg-gradient-to-r from-blue-500 to-green-500 transition-all duration-300 group-hover:w-full z-200`}
+                ></span>
               </Link>
             ))}
           </motion.div>
