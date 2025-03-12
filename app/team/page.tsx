@@ -79,31 +79,32 @@ const teamMembers = [
 
 export default function Team() {
   return (
-    <div className="container mx-auto py-20 px-6 text-center">
-      <motion.div 
-        className="relative text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 mb-10"
+    <div className="container mx-auto py-30 px-6 text-center">
+      <motion.div
+        className="relative text-6xl font-bold font-[Merriweather] text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 mb-12"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
         Meet Our Team!
       </motion.div>
-      
+
       {teamMembers.map((team, index) => (
-        <motion.div 
-          key={index} 
+        <motion.div
+          key={index}
           className="mb-12"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-2xl font-semibold mb-6 border-b-4 pb-2 border-blue-900">
+          <h2 className="text-2xl font-semibold mb-6 border-b-4 pt-2 pb-2 border-blue-900 font-[Poppins]">
             {team.category}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="flex flex-wrap gap-6 justify-center px-20">
+
             {team.members.map((member, idx) => (
-              <motion.div 
-                key={idx} 
+              <motion.div
+                key={idx}
                 className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2"
                 whileHover={{ scale: 1.05 }}
               >
@@ -116,9 +117,9 @@ export default function Team() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-lg font-bold mt-4">{member.name}</h3>
-                {member.role && <p className="font-semibold text-blue-500">{member.role}</p>}
-                <p className="text-gray-600">{member.year} year, {member.dept}</p>
+                <h3 className="text-lg font-bold mt-4 font-[Poppins]">{member.name}</h3>
+                {member.role && <p className="font-semibold text-blue-500 font-[Inter]">{member.role}</p>}
+                <p className="text-gray-600 font-[Inter]">{member.year} year, {member.dept}</p>
               </motion.div>
             ))}
           </div>

@@ -39,24 +39,22 @@ const Header = () => {
 
   return (
     <div
-      className={`fixed top-0 w-full flex items-center justify-between px-4 md:px-20 transition-all duration-300 z-10 ${
-        pathname !== "/" || (pathname === "/" && scrolled)
+      className={`fixed top-0 w-full flex items-center justify-between px-4 md:px-20 transition-all duration-300 z-10 ${pathname !== "/" || (pathname === "/" && scrolled)
           ? "py-4 backdrop-blur-md"
           : "py-10 bg-transparent"
-      }`}
+        }`}
     >
       {/* Title Section */}
       <Link
         href="/"
-        className={`text-lg font-semibold transition-all duration-500 flex justify-center items-center gap-2 md:gap-6 ${
-          !footerVisible
+        className={`text-lg font-semibold transition-all duration-500 flex justify-center items-center gap-2 md:gap-6 ${!footerVisible
             ? pathname === "/"
               ? showTitle && !footerVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 -translate-y-10"
               : "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-10"
-        }`}
+          }`}
       >
         <Image
           className="h-[32px] md:h-[42px] w-auto"
@@ -79,17 +77,15 @@ const Header = () => {
           <Link
             key={index}
             href={link}
-            className={`font-[Inter] text-lg transition-all duration-300 relative group ${
-              pathname === "/" && !textDark ? "text-white" : "text-black"
-            }`}
+            className={`font-[Inter] text-lg transition-all duration-300 relative group ${pathname === "/" && !textDark ? "text-white" : "text-black"
+              }`}
           >
             {link === "/"
               ? "Home"
               : link.replace("/", "").charAt(0).toUpperCase() + link.slice(2)}
             <span
-              className={`absolute bottom-[-4px] left-0 w-0 h-[2px] ${
-                pathname === link ? "w-full" : "w-0"
-              } bg-gradient-to-r from-blue-500 to-green-500 transition-all duration-300 group-hover:w-full`}
+              className={`absolute bottom-[-4px] left-0 w-0 h-[2px] ${pathname === link ? "w-full" : "w-0"
+                } bg-gradient-to-r from-blue-500 to-green-500 transition-all duration-300 group-hover:w-full`}
             ></span>
           </Link>
         ))}
@@ -102,11 +98,10 @@ const Header = () => {
           onClick={() => setImdobileMenuOpen(!imdobileMenuOpen)}
         >
           <motion.span
-            className={`block w-6 h-1 rounded mb-1 ${
-              textDark || imdobileMenuOpen || pathname !== "/"
+            className={`block w-6 h-1 rounded mb-1 ${textDark || imdobileMenuOpen || pathname !== "/"
                 ? "bg-black"
                 : "bg-white"
-            }`}
+              }`}
             animate={
               imdobileMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }
             }
@@ -117,11 +112,10 @@ const Header = () => {
             }}
           ></motion.span>
           <motion.span
-            className={`block w-6 h-1 rounded mb-1 ${
-              textDark || imdobileMenuOpen || pathname !== "/"
+            className={`block w-6 h-1 rounded mb-1 ${textDark || imdobileMenuOpen || pathname !== "/"
                 ? "bg-black"
                 : "bg-white"
-            }`}
+              }`}
             animate={imdobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
             transition={{
               opacity: { duration: 0.2 },
@@ -129,11 +123,10 @@ const Header = () => {
             }}
           ></motion.span>
           <motion.span
-            className={`block w-6 h-1 rounded ${
-              textDark || imdobileMenuOpen || pathname !== "/"
+            className={`block w-6 h-1 rounded ${textDark || imdobileMenuOpen || pathname !== "/"
                 ? "bg-black"
                 : "bg-white"
-            }`}
+              }`}
             animate={
               imdobileMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }
             }
@@ -160,19 +153,18 @@ const Header = () => {
               <Link
                 key={index}
                 href={link}
-                className="block text-black text-4xl"
+                className="relative block text-black text-4xl group"
                 onClick={() => setImdobileMenuOpen(false)}
               >
                 {link === "/"
                   ? "Home"
-                  : link.replace("/", "").charAt(0).toUpperCase() +
-                    link.slice(2)}
+                  : link.replace("/", "").charAt(0).toUpperCase() + link.slice(2)}
                 <span
-                  className={`absolute bottom-[-4px] left-0 w-0 h-[2px] ${
-                    pathname === link ? "w-full" : "w-0"
-                  } bg-gradient-to-r from-blue-500 to-green-500 transition-all duration-300 group-hover:w-full z-200`}
+                  className={`absolute rouded-lg translate-y-2 left-0 bottom-0 h-[4px] bg-gradient-to-r from-blue-500 to-green-500 transition-all duration-300 ${pathname === link ? "w-full" : "w-0"
+                    } group-hover:w-full`}
                 ></span>
               </Link>
+
             ))}
           </motion.div>
         )}

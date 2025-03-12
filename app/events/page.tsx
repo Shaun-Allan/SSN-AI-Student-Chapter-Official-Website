@@ -23,30 +23,30 @@ const events = [
 
 export default function Events() {
   return (
-    <div className="container mx-auto py-20 px-6 text-center">
+    <div className="container mx-auto py-20 px-30 text-center">
       <motion.h1
-        className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 mb-10"
+        className="text-5xl font-bold font-[Merriweather] text-transparent py-10 bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 mb-10"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
         Our Events!
       </motion.h1>
-      <div className="relative border-l-4 border-blue-500 pl-6 before:absolute before:top-0 before:left-0 before:w-2 before:h-full before:bg-gradient-to-b from-blue-500 to-blue-900">
+      <div className="relative border-l-4 border-blue-500 pl-4 before:absolute before:top-0 before:left-0 before:w-2 before:h-full before:bg-gradient-to-b from-blue-500 to-blue-900">
         {events.map((event, index) => (
           <motion.div
             key={index}
-            className={`mb-12 relative flex items-center justify-between ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+            className={`mb-18 relative flex items-center justify-between ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
             <div className="absolute w-6 h-6 bg-blue-500 rounded-full left-[-1.75rem] border-4 border-white shadow-md"></div>
-            <div className="w-1/2 p-6 bg-white shadow-lg rounded-lg">
-              <h2 className="text-2xl font-bold text-blue-600">{event.title}</h2>
-              <p className="text-gray-700 mt-2">📅 {event.date} | ⏰ {event.time}</p>
-              <p className="text-gray-600 mt-2">📍 {event.location}</p>
-              <p className="text-gray-500 mt-4">{event.description}</p>
+            <div className="ml-8 w-1/2 p-6 bg-white shadow-lg rounded-lg">
+              <h2 className="text-2xl font-bold text-blue-600 font-[Poppins] mb-4">{event.title}</h2>
+              <p className="text-gray-700 mt-2 font-[Inter]">📅 {event.date} | ⏰ {event.time}</p>
+              <p className="text-gray-600 mt-2 font-[Inter]">📍 {event.location}</p>
+              <p className="text-gray-500 mt-4 font-[Inter]">{event.description}</p>
             </div>
             <div className="w-1/2 flex justify-center">
               <Image
