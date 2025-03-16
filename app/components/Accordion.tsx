@@ -3,11 +3,12 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
 const Accordion = () => {
-    const [activeIndex, setActiveIndex] = useState(null);
+    const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-    const handleToggle = (index: any) => {
+    const handleToggle = (index: number) => {
         setActiveIndex(activeIndex === index ? null : index);
     };
+
 
     const accordionContent = [
         {
