@@ -183,14 +183,14 @@ export default function Home() {
 
 
         <ScrollVelocity
-          texts={["Embracing AI in Education |", "Shaping India&apos;s Future |"]}
+          texts={["Embracing AI in Education |", "Shaping India\'s Future |"]}
           velocity={50}
           className="custom-scroll-text"
         />
 
         {/* Spacer Section */}
         <div className="min-h-full sm:min-h-screen w-full px-6 sm:px-40 pt-20 sm:pt-0 sm:py-20 flex flex-col sm:flex-row gap-15 justify-center items-center">
-          <div className="font-[Inter] text-justify sm:text-start text-lg sm:text-xl leading-[1.8] sm:leading-[2.5]" style={{ wordSpacing: "4px" }}>The AI Student Chapter is dedicated to fostering innovation, learning, and collaboration in the field of Artificial Intelligence. Aligned with <span className="text-3xl sm:text-4xl font-bold font-[Merriweather]">AICTE</span>'s (All India Council for Technical Education) vision, we aim to integrate AI into education through workshops, research initiatives, industry partnerships, and student-driven projects. Our mission is to equip students with the knowledge and skills needed to lead the AI revolution, ensuring ethical and impactful advancements in technology.<a
+          <div className="font-[Inter] text-justify sm:text-start text-lg sm:text-xl leading-[1.8] sm:leading-[2.5]" style={{ wordSpacing: "4px" }}>The AI Student Chapter is dedicated to fostering innovation, learning, and collaboration in the field of Artificial Intelligence. Aligned with <span className="text-3xl sm:text-4xl font-bold font-[Merriweather]">AICTE</span>&apos;s (All India Council for Technical Education) vision, we aim to integrate AI into education through workshops, research initiatives, industry partnerships, and student-driven projects. Our mission is to equip students with the knowledge and skills needed to lead the AI revolution, ensuring ethical and impactful advancements in technology.<a
             href="/AI Student Chapter.pdf"
             download="AI Student Chapter.pdf"
           >
@@ -198,7 +198,7 @@ export default function Home() {
           </a></div>
           <div className="relative rounded-md overflow-hidden shadow-xl group hidden sm:inline">
             {/* Image */}
-            <Image
+            <img
               src="/aicte.png"
               alt="aicte"
               className="rounded-md w-[1400px] h-auto shadow-xl transition-transform duration-300 group-hover:scale-110"
