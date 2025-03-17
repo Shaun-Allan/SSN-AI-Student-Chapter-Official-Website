@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
-import { useSprings, animated, SpringValue, easings } from '@react-spring/web';
+import { useSprings, animated, easings } from '@react-spring/web';
 
 const AnimatedSpan = animated.span as React.FC<React.HTMLAttributes<HTMLSpanElement>>;
 

@@ -204,7 +204,9 @@ export default function Home() {
           </a></div>
           <div className="relative rounded-md overflow-hidden shadow-xl group hidden sm:inline">
             {/* Image */}
-            <img
+            <Image
+            height={400}
+            width={400}
               src="/aicte.png"
               alt="aicte"
               className="rounded-md w-[1400px] h-auto shadow-xl transition-transform duration-300 group-hover:scale-110"
