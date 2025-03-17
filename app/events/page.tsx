@@ -23,7 +23,7 @@ const events = [
 
 export default function Events() {
   return (
-    <div className="container mx-auto py-20 px-30 text-center">
+    <div className="container mx-auto py-20 px-4 sm:px-8 lg:px-30 text-center">
       <motion.h1
         className="text-5xl font-bold font-[Merriweather] text-transparent py-10 bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 mb-10"
         initial={{ opacity: 0, y: -50 }}
@@ -36,19 +36,23 @@ export default function Events() {
         {events.map((event, index) => (
           <motion.div
             key={index}
-            className={`mb-18 relative flex items-center justify-between ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+            className={`mb-18 relative flex flex-col sm:flex-row items-center justify-between ${
+              index % 2 === 0 ? 'sm:flex-row' : 'sm:flex-row-reverse'
+            }`}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="absolute w-6 h-6 bg-blue-500 rounded-full left-[-1.75rem] border-4 border-white shadow-md"></div>
-            <div className="ml-8 w-1/2 p-6 bg-white shadow-lg rounded-lg">
+            {/* Updated blue dot for vertical centering */}
+            <div className="absolute w-6 h-6 bg-blue-500 rounded-full left-[-1.75rem] top-1/4 transform -translate-0.5 -translate-y-1/2 border-4 border-white shadow-md"></div>
+            
+            <div className="w-full sm:w-1/2 p-6 bg-white shadow-lg rounded-lg mb-6 sm:mb-0">
               <h2 className="text-2xl font-bold text-blue-600 font-[Poppins] mb-4">{event.title}</h2>
               <p className="text-gray-700 mt-2 font-[Inter]">📅 {event.date} | ⏰ {event.time}</p>
               <p className="text-gray-600 mt-2 font-[Inter]">📍 {event.location}</p>
               <p className="text-gray-500 mt-4 font-[Inter]">{event.description}</p>
             </div>
-            <div className="w-1/2 flex justify-center">
+            <div className="w-full sm:w-1/2 flex justify-center">
               <Image
                 src={event.image}
                 alt={event.title}

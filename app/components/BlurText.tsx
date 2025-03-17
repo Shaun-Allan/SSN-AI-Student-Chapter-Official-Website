@@ -30,7 +30,7 @@ const BlurText: React.FC<BlurTextProps> = ({
   easing,
   onAnimationComplete,
 }) => {
-  const elements = animateBy === 'words' ? text.split(' ') : text.split('');
+  const elements = animateBy === 'words' ? text.split('\n') : text.split('\n');
   const [inView, setInView] = useState(false);
   const ref = useRef<HTMLParagraphElement>(null);
   const animatedCount = useRef(0);
@@ -94,7 +94,7 @@ const BlurText: React.FC<BlurTextProps> = ({
         <AnimatedSpan
           key={index}
           style={props}
-          className="inline-block transition-transform will-change-[transform,filter,opacity]"
+          className="inline-block text-center leading-relaxed transition-transform will-change-[transform,filter,opacity]"
         >
           {elements[index] === ' ' ? '\u00A0' : elements[index]}
           {animateBy === 'words' && index < elements.length - 1 && '\u00A0'}

@@ -161,14 +161,19 @@ export default function Home() {
 
 
 
-        <div className="h-screen w-full px-6 sm:px-14 py-20 flex flex-col gap-10 justify-center items-center">
+        <div className="relative h-screen w-full px-6 sm:px-14 py-20 flex flex-col gap-10 justify-center items-center">
+  {/* Background Overlay */}
+  <div className="absolute inset-0 bg-[url('/ai-bg-4.avif')] bg-cover bg-center opacity-25"></div>
+
+  {/* Content */}
+  {/* <div className="relative z-10"> */}
           <BlurText
             text="AI For All"
             delay={150}
             animateBy="words"
             direction="top"
             onAnimationComplete={handleAnimationComplete}
-            className="font-[Merriweather] font-light  text-5xl sm:text-8xl mb-8"
+            className="text-center font-[Merriweather] font-bold  text-6xl sm:text-9xl mb-2 sm:mb-8"
           />
           <BlurText
             text="The Future Begins Here"
@@ -176,8 +181,9 @@ export default function Home() {
             animateBy="words"
             direction="top"
             onAnimationComplete={handleAnimationComplete}
-            className="font-[Merriweather] font-light  text-5xl sm:text-8xl mb-8"
+            className="font-[Merriweather] font-bold  text-6xl sm:text-9xl mb-2 sm:mb-8"
           />
+        {/* </div> */}
         </div>
 
 
@@ -220,7 +226,7 @@ export default function Home() {
         </div>
 
         {/* Spacer Section */}
-        <div className="min-h-full w-full px-6 sm:px-14 pb-20 flex flex-col gap-10">
+        <div className="min-h-full w-full px-6 sm:px-14 pb-20 flex flex-col gap-10 mt-20 sm:mt-0">
           <span className="font-[Merriweather] font-semibold text-3xl sm:text-5xl">Questions Related To Our Club</span>
           <Accordion></Accordion>
         </div>

@@ -6,7 +6,7 @@ const teamMembers = [
   {
     category: 'Faculty Incharge',
     members: [
-      { name: 'Dr. Dhannya SM', role: 'Assistant Professor', dept: 'CSE', image: '/images/Dhannya_pic.png' },
+      { name: 'Dr. Dhannya SM', role: 'Assistant Professor', dept: 'CSE', image: '/images/Dhannya_Pic.png' },
     ],
   },
   {
