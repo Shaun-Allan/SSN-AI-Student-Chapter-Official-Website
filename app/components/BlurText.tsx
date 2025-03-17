@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
-import { useSprings, animated, SpringValue, EasingFunction } from '@react-spring/web';
+import { useSprings, animated, SpringValue, easings } from '@react-spring/web';
 
 const AnimatedSpan = animated.span as React.FC<React.HTMLAttributes<HTMLSpanElement>>;
 
@@ -11,9 +11,9 @@ interface BlurTextProps {
   direction?: 'top' | 'bottom';
   threshold?: number;
   rootMargin?: string;
-  animationFrom?: Record<string, SpringValue<string | number>>;
-  animationTo?: Record<string, SpringValue<string | number>>[];
-  easing?: EasingFunction;
+  animationFrom?: Record<string, string | number>;
+  animationTo?: Record<string, string | number>[];
+  easing?: (t: number) => number;
   onAnimationComplete?: () => void;
 }
 
@@ -27,19 +27,19 @@ const BlurText: React.FC<BlurTextProps> = ({
   rootMargin = '0px',
   animationFrom,
   animationTo,
-  easing,
+  easing = easings.easeInOutQuad,
   onAnimationComplete,
 }) => {
-  const elements = animateBy === 'words' ? text.split('\n') : text.split('\n');
+  const elements = animateBy === 'words' ? text.split('\n') : text.split('');
   const [inView, setInView] = useState(false);
   const ref = useRef<HTMLParagraphElement>(null);
   const animatedCount = useRef(0);
 
-  const defaultFrom: Record<string, SpringValue<string | number>> = direction === 'top'
+  const defaultFrom = direction === 'top'
     ? { filter: 'blur(10px)', opacity: 0, transform: 'translate3d(0,-50px,0)' }
     : { filter: 'blur(10px)', opacity: 0, transform: 'translate3d(0,50px,0)' };
-  
-  const defaultTo: Record<string, SpringValue<string | number>>[] = [
+
+  const defaultTo = [
     {
       filter: 'blur(5px)',
       opacity: 0.5,
