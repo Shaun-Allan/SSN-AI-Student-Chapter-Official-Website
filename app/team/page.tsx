@@ -1,3 +1,4 @@
+'use client';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
@@ -76,7 +77,19 @@ const teamMembers = [
   },
 ];
 
+interface Member {
+  name: string;
+  dept: string;
+  image: string;
+  year?: string;
+  role?: string;
+}
+
+
+
+
 export default function Team() {
+  
   return (
     <div className="container mx-auto py-30 px-6 text-center">
       <motion.div
@@ -101,7 +114,7 @@ export default function Team() {
           </h2>
           <div className="flex flex-wrap gap-6 justify-center px-20">
 
-            {team.members.map((member, idx) => (
+            {team.members.map((member:Member, idx) => (
               <motion.div
                 key={idx}
                 className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2"

@@ -8,7 +8,7 @@ import Accordion from "./components/Accordion";
 import ScrollVelocity from './components/ScrollVelocity';
 import { Download } from "lucide-react";
 
-import BlurText from "./components/BlurText";
+import BlurText from './components/BlurText'
 
 export default function Home() {
   const [scaled, setScaled] = useState(false);
